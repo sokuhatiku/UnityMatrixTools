@@ -1,0 +1,13 @@
+{
+    "name": "sokuhatiku.matrixtools",
+    "displayName": "MatrixTools",
+    "version": "0.0.1",
+    "unity": "2017.4",
+    "description": "UnityEditor上でMatrix4x4を扱いやすくするためのツールを提供します。",
+    "keywords": [
+        "MatrixTools",
+        "Matrix"
+    ],
+    "dependencies": {
+    }
+}

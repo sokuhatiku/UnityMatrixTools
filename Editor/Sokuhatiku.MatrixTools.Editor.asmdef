@@ -1,0 +1,10 @@
+{
+    "name": "Sokuhatiku.MatrixTools.Editor",
+    "references": [
+        "Sokuhatiku.MatrixTools"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": []
+}

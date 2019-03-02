@@ -1,0 +1,11 @@
+{
+    "name": "Sokuhatiku.UnityMatrixField.EditorTests",
+    "references": [
+        "Sokuhatiku.MatrixTools",
+        "Sokuhatiku.MatrixTools.Editor"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": []
+}
