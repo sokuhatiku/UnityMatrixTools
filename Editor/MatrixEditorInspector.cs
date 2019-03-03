@@ -3,20 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(MatrixEditor))]
-public class MatrixEditorInspector : Editor
+namespace Sokuhatiku.MatrixTools
 {
-	public override void OnInspectorGUI()
+	[CustomEditor(typeof(MatrixEditor))]
+	public class MatrixEditorInspector : Editor
 	{
-		base.OnInspectorGUI();
-
-		var matrixProperty = serializedObject.FindProperty("matrix");
-		EditorGUI.BeginDisabledGroup(matrixProperty.hasMultipleDifferentValues);
-		if (GUILayout.Button("Copy Invert Matrix"))
+		public override void OnInspectorGUI()
 		{
-			var matrix = matrixProperty.GetMatrixValue().inverse;
-			EditorMatrixUtility.MatrixToClipboard(ref matrix);
+			base.OnInspectorGUI();
+
+			var matrixProperty = serializedObject.FindProperty("matrix");
+			EditorGUI.BeginDisabledGroup(matrixProperty.hasMultipleDifferentValues);
+			if (GUILayout.Button("Copy Invert Matrix"))
+			{
+				var matrix = matrixProperty.GetMatrixValue().inverse;
+				EditorMatrixUtility.MatrixToClipboard(ref matrix);
+			}
+			EditorGUI.EndDisabledGroup();
 		}
-		EditorGUI.EndDisabledGroup();
 	}
 }

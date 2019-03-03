@@ -1,15 +1,18 @@
 ﻿using UnityEngine;
 
-public static class EditorMatrixUtility
+namespace Sokuhatiku.MatrixTools
 {
-	public static void MatrixToClipboard(ref Matrix4x4 matrix)
+	public static class EditorMatrixUtility
 	{
-		GUIUtility.systemCopyBuffer = MatrixUtility.CreateCSV(matrix);
-	}
+		public static void MatrixToClipboard(ref Matrix4x4 matrix)
+		{
+			GUIUtility.systemCopyBuffer = MatrixUtility.CreateCSV(matrix);
+		}
 
-	public static void MatrixFromClipboard(ref Matrix4x4 matrix)
-	{
-		var csv = GUIUtility.systemCopyBuffer;
-		MatrixUtility.TryParse(csv, out matrix);
+		public static void MatrixFromClipboard(ref Matrix4x4 matrix)
+		{
+			var csv = GUIUtility.systemCopyBuffer;
+			MatrixUtility.TryParse(csv, out matrix);
+		}
 	}
 }

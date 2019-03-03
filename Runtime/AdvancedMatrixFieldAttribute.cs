@@ -1,4 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-public class AdvancedMatrixFieldAttribute : PropertyAttribute { }
+namespace Sokuhatiku.MatrixTools
+{
+	public class AdvancedMatrixFieldAttribute : PropertyAttribute { }
+}

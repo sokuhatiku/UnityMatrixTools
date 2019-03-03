@@ -1,7 +1,10 @@
 ﻿using UnityEngine;
 
-internal interface IMatrixSource
+namespace Sokuhatiku.MatrixTools
 {
-	Matrix4x4 Matrix { get; }
-	Matrix4x4Event OnUpdateMatrix { get; }
+	internal interface IMatrixSource
+	{
+		Matrix4x4 Matrix { get; }
+		Matrix4x4Event OnUpdateMatrix { get; }
+	}
 }

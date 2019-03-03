@@ -1,16 +1,19 @@
 ﻿using UnityEngine;
 using UnityEditor;
 
-[CustomPropertyDrawer(typeof(AdvancedMatrixFieldAttribute))]
-public class AdvancedMatrixFieldDrawer : PropertyDrawer
+namespace Sokuhatiku.MatrixTools
 {
-	public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
+	[CustomPropertyDrawer(typeof(AdvancedMatrixFieldAttribute))]
+	public class AdvancedMatrixFieldDrawer : PropertyDrawer
 	{
-		return EditorMatrixGUI.AdvancedMatrixFieldHeight;
-	}
+		public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
+		{
+			return EditorMatrixGUI.AdvancedMatrixFieldHeight;
+		}
 
-	public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
-	{
-		EditorMatrixGUI.AdvancedMatrixField(position, property);
+		public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
+		{
+			EditorMatrixGUI.AdvancedMatrixField(position, property);
+		}
 	}
 }
