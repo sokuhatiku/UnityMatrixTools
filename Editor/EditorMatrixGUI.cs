@@ -85,13 +85,13 @@ public static class EditorMatrixGUI
 	{
 		TableLayout(position, 4, 4, (cell, row, column) =>
 		{
-			matrix[row, column] = EditorGUI.FloatField(cell, matrix[row, column]);
+			matrix[column, row] = EditorGUI.FloatField(cell, matrix[column, row]);
 		});
 
 		return matrix;
 	}
 
-	private delegate void TableLayoutCellAction(Rect cellPosition, int rowIndex, int columnIndex);
+	private delegate void TableLayoutCellAction(Rect cellPosition, int row, int column);
 
 	private static void TableLayout(Rect position, float rowCount, float columnCount, TableLayoutCellAction action)
 	{
