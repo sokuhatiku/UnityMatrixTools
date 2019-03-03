@@ -27,13 +27,13 @@ public static class EditorMatrixGUI
 		EditorGUI.showMixedValue = false;
 	}
 
-	private static Matrix4x4 AdvancedMatrixField(Rect position, string label, Matrix4x4 matrix)
+	public static Matrix4x4 AdvancedMatrixField(Rect position, string label, Matrix4x4 matrix)
 	{
 		var content = new GUIContent(label);
 		return AdvancedMatrixField(position, content, matrix);
 	}
 
-	private static Matrix4x4 AdvancedMatrixField(Rect position, GUIContent label, Matrix4x4 matrix)
+	public static Matrix4x4 AdvancedMatrixField(Rect position, GUIContent label, Matrix4x4 matrix)
 	{
 		float rightSideWidth = Mathf.Max(180, position.width * 0.6f);
 		float leftSideWidth = position.width - rightSideWidth;
