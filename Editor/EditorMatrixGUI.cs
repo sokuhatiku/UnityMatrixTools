@@ -83,10 +83,14 @@ public static class EditorMatrixGUI
 
 	private static Matrix4x4 DrawMatrixTable(Rect position, Matrix4x4 matrix)
 	{
-		TableLayout(position, 4, 4, (cell, row, column) =>
+		var defaultLabelWidth = EditorGUIUtility.labelWidth;
+		EditorGUIUtility.labelWidth = 18;
+		TableLayout(position, 4, 4, (cellPosition, row, column) =>
 		{
-			matrix[column, row] = EditorGUI.FloatField(cell, matrix[column, row]);
+			var labelText = row + "" + column;
+			matrix[column, row] = EditorGUI.FloatField(cellPosition, labelText, matrix[column, row]);
 		});
+		EditorGUIUtility.labelWidth = defaultLabelWidth;
 
 		return matrix;
 	}
