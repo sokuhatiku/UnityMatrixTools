@@ -50,7 +50,7 @@ public static class EditorMatrixGUILayout
 		var field3 = material.GetVector(name3);
 		var matrix = new Matrix4x4(field0, field1, field2, field3);
 
-		matrix = EditorMatrixGUILayout.AdvancedMatrixField(propertyName, matrix);
+		matrix = AdvancedMatrixField(propertyName, matrix);
 
 		var changed = EditorGUI.EndChangeCheck();
 		if (changed)
