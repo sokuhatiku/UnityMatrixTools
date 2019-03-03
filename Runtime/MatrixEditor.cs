@@ -5,7 +5,7 @@ using UnityEngine;
 public class MatrixEditor : MonoBehaviour, IMatrixSource
 {
 #pragma warning disable 0414
-	[SerializeField]
+	[SerializeField, Multiline]
 	private string note = "";
 	[SerializeField]
 	private bool enableGizmo = false;
