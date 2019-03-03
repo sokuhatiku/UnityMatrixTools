@@ -7,33 +7,33 @@ namespace Sokuhatiku.MatrixTools
 {
 	public static class EditorMatrixGUILayout
 	{
-		public static void AdvancedMatrixField(SerializedProperty matrixProperty)
+		public static void MatrixField(SerializedProperty matrixProperty)
 		{
-			AdvancedMatrixField(matrixProperty.displayName, matrixProperty);
+			MatrixField(matrixProperty.displayName, matrixProperty);
 		}
 
-		public static void AdvancedMatrixField(string label, SerializedProperty matrixProperty)
+		public static void MatrixField(string label, SerializedProperty matrixProperty)
 		{
 			var content = new GUIContent(label);
-			AdvancedMatrixField(content, matrixProperty);
+			MatrixField(content, matrixProperty);
 		}
 
-		public static void AdvancedMatrixField(GUIContent label, SerializedProperty matrixProperty)
+		public static void MatrixField(GUIContent label, SerializedProperty matrixProperty)
 		{
 			Rect rect = GetFieldRect();
-			EditorMatrixGUI.AdvancedMatrixField(rect, matrixProperty);
+			EditorMatrixGUI.MatrixField(rect, matrixProperty);
 		}
 
-		public static Matrix4x4 AdvancedMatrixField(string label, Matrix4x4 matrix)
+		public static Matrix4x4 MatrixField(string label, Matrix4x4 matrix)
 		{
 			Rect rect = GetFieldRect();
-			return EditorMatrixGUI.AdvancedMatrixField(rect, label, matrix);
+			return EditorMatrixGUI.MatrixField(rect, label, matrix);
 		}
 
-		public static Matrix4x4 AdvancedMatrixField(GUIContent label, Matrix4x4 matrix)
+		public static Matrix4x4 MatrixField(GUIContent label, Matrix4x4 matrix)
 		{
 			Rect rect = GetFieldRect();
-			return EditorMatrixGUI.AdvancedMatrixField(rect, label, matrix);
+			return EditorMatrixGUI.MatrixField(rect, label, matrix);
 		}
 
 
@@ -52,7 +52,7 @@ namespace Sokuhatiku.MatrixTools
 			var field3 = material.GetVector(name3);
 			var matrix = new Matrix4x4(field0, field1, field2, field3);
 
-			matrix = AdvancedMatrixField(propertyName, matrix);
+			matrix = MatrixField(propertyName, matrix);
 
 			var changed = EditorGUI.EndChangeCheck();
 			if (changed)
@@ -67,7 +67,7 @@ namespace Sokuhatiku.MatrixTools
 
 		private static Rect GetFieldRect()
 		{
-			return GUILayoutUtility.GetRect(Screen.width, EditorMatrixGUI.AdvancedMatrixFieldHeight);
+			return GUILayoutUtility.GetRect(Screen.width, EditorMatrixGUI.MatrixFieldHeight);
 		}
 
 	}

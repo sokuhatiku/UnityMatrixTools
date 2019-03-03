@@ -3,5 +3,5 @@ using UnityEngine;
 
 namespace Sokuhatiku.MatrixTools
 {
-	public class AdvancedMatrixFieldAttribute : PropertyAttribute { }
+	public class MatrixFieldAttribute : PropertyAttribute { }
 }

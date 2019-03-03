@@ -5,7 +5,7 @@ namespace Sokuhatiku.MatrixTools
 {
 	public static class EditorMatrixGUI
 	{
-		public static float AdvancedMatrixFieldHeight
+		public static float MatrixFieldHeight
 		{
 			get
 			{
@@ -13,18 +13,18 @@ namespace Sokuhatiku.MatrixTools
 			}
 		}
 
-		public static void AdvancedMatrixField(Rect position, SerializedProperty matrixProperty)
+		public static void MatrixField(Rect position, SerializedProperty matrixProperty)
 		{
-			AdvancedMatrixField(position, matrixProperty.displayName, matrixProperty);
+			MatrixField(position, matrixProperty.displayName, matrixProperty);
 		}
 
-		public static void AdvancedMatrixField(Rect position, string label, SerializedProperty matrixProperty)
+		public static void MatrixField(Rect position, string label, SerializedProperty matrixProperty)
 		{
 			var content = new GUIContent(label);
-			AdvancedMatrixField(position, content, matrixProperty);
+			MatrixField(position, content, matrixProperty);
 		}
 
-		public static void AdvancedMatrixField(Rect position, GUIContent label, SerializedProperty matrixProperty)
+		public static void MatrixField(Rect position, GUIContent label, SerializedProperty matrixProperty)
 		{
 			var matrix = matrixProperty.GetMatrixValue();
 			var newMatrix = matrix;
@@ -33,20 +33,20 @@ namespace Sokuhatiku.MatrixTools
 				EditorGUI.showMixedValue = true;
 			EditorGUI.BeginChangeCheck();
 
-			newMatrix = AdvancedMatrixField(position, label, matrix);
+			newMatrix = MatrixField(position, label, matrix);
 
 			if (EditorGUI.EndChangeCheck())
 				matrixProperty.SetMatrixValue(newMatrix);
 			EditorGUI.showMixedValue = false;
 		}
 
-		public static Matrix4x4 AdvancedMatrixField(Rect position, string label, Matrix4x4 matrix)
+		public static Matrix4x4 MatrixField(Rect position, string label, Matrix4x4 matrix)
 		{
 			var content = new GUIContent(label);
-			return AdvancedMatrixField(position, content, matrix);
+			return MatrixField(position, content, matrix);
 		}
 
-		public static Matrix4x4 AdvancedMatrixField(Rect position, GUIContent label, Matrix4x4 matrix)
+		public static Matrix4x4 MatrixField(Rect position, GUIContent label, Matrix4x4 matrix)
 		{
 			float rightSideWidth = Mathf.Max(180, position.width * 0.6f);
 			float leftSideWidth = position.width - rightSideWidth;

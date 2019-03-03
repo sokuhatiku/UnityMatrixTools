@@ -9,7 +9,7 @@ namespace Sokuhatiku.MatrixTools
 	{
 		public override float GetPropertyHeight(MaterialProperty prop, string label, MaterialEditor editor)
 		{
-			return EditorMatrixGUI.AdvancedMatrixFieldHeight;
+			return EditorMatrixGUI.MatrixFieldHeight;
 		}
 
 		public override void OnGUI(Rect position, MaterialProperty prop, GUIContent label, MaterialEditor editor)
@@ -37,7 +37,7 @@ namespace Sokuhatiku.MatrixTools
 				prop2.hasMixedValue ||
 				prop3.hasMixedValue;
 
-			matrix = EditorMatrixGUI.AdvancedMatrixField(position, label, matrix);
+			matrix = EditorMatrixGUI.MatrixField(position, label, matrix);
 
 			EditorGUI.showMixedValue = false;
 

@@ -13,7 +13,7 @@ namespace Sokuhatiku.MatrixTools
 		private bool enableGizmo = false;
 #pragma warning restore 0414
 
-		[SerializeField, AdvancedMatrixField]
+		[SerializeField, MatrixField]
 		private Matrix4x4 matrix = Matrix4x4.identity;
 		public Matrix4x4 Matrix
 		{ get { return matrix; } }

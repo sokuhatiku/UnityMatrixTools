@@ -3,17 +3,17 @@ using UnityEditor;
 
 namespace Sokuhatiku.MatrixTools
 {
-	[CustomPropertyDrawer(typeof(AdvancedMatrixFieldAttribute))]
-	public class AdvancedMatrixFieldDrawer : PropertyDrawer
+	[CustomPropertyDrawer(typeof(MatrixFieldAttribute))]
+	public class MatrixFieldDrawer : PropertyDrawer
 	{
 		public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
 		{
-			return EditorMatrixGUI.AdvancedMatrixFieldHeight;
+			return EditorMatrixGUI.MatrixFieldHeight;
 		}
 
 		public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
 		{
-			EditorMatrixGUI.AdvancedMatrixField(position, property);
+			EditorMatrixGUI.MatrixField(position, property);
 		}
 	}
 }
