@@ -9,7 +9,7 @@ UnityMatrixTool
 
 Matrixフィールドに`MatrixFieldAttribute`を付けることで、インスペクタ上での見た目がこのように変化します。各値が見やすくなる他、左側にあるボタンでMatrixの値を一括でコピー、ペーストすることができます。また、クリップボードに保存される値はcsvのフォーマットである為、適当なテキストエディタで作成、編集が可能です。
 
-## SerializedMatrix
+## MatrixField(Material)
 ![Material inspector view](Documentation~/Images/Matrix_field_on_material_inspector.png)
 
 Materialにシリアライズされる形でMatrixを保持することができます。Vectorプロパティを4つ使用することで、シェーダー内およびインスペクタ上でMatrixとして扱うことが可能になる支援スクリプトを提供します。
