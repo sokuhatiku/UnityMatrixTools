@@ -35,13 +35,13 @@ public static class EditorMatrixGUILayout
 	}
 
 
-	public static void VectorMatrixField(string propertyName, Material material, string namePrefix)
+	public static void MaterialSerializedMatrixField(string propertyName, Material material, string namePrefix)
 	{
-		VectorMatrixField(propertyName, material,
+		MaterialSerializedMatrixField(propertyName, material,
 			namePrefix + "0", namePrefix + "1", namePrefix + "2", namePrefix + "3");
 	}
 
-	public static void VectorMatrixField(string propertyName, Material material, string name0, string name1, string name2, string name3)
+	public static void MaterialSerializedMatrixField(string propertyName, Material material, string name0, string name1, string name2, string name3)
 	{
 		EditorGUI.BeginChangeCheck();
 		var field0 = material.GetVector(name0);
