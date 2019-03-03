@@ -13,6 +13,17 @@ public static class EditorMatrixGUI
 
 	public static void AdvancedMatrixField(Rect position, SerializedProperty matrixProperty)
 	{
+		AdvancedMatrixField(position, matrixProperty.displayName, matrixProperty);
+	}
+
+	public static void AdvancedMatrixField(Rect position, string label, SerializedProperty matrixProperty)
+	{
+		var content = new GUIContent(label);
+		AdvancedMatrixField(position, content, matrixProperty);
+	}
+
+	public static void AdvancedMatrixField(Rect position, GUIContent label, SerializedProperty matrixProperty)
+	{
 		var matrix = matrixProperty.GetMatrixValue();
 		var newMatrix = matrix;
 
@@ -20,7 +31,7 @@ public static class EditorMatrixGUI
 			EditorGUI.showMixedValue = true;
 		EditorGUI.BeginChangeCheck();
 
-		newMatrix = AdvancedMatrixField(position, matrixProperty.displayName, matrix);
+		newMatrix = AdvancedMatrixField(position, label, matrix);
 
 		if (EditorGUI.EndChangeCheck())
 			matrixProperty.SetMatrixValue(newMatrix);
@@ -52,18 +63,19 @@ public static class EditorMatrixGUI
 		var copyButtonPosition = headerPosition;
 		copyButtonPosition.width = Mathf.Min(100, leftSideWidth);
 		copyButtonPosition.y += copyButtonPosition.height * 2;
-		matrix = DrawCopyButton(matrix, copyButtonPosition);
+		matrix = DrawCopyButton(copyButtonPosition, matrix);
 
 		var pasteButtonPosition = copyButtonPosition;
 		pasteButtonPosition.y += pasteButtonPosition.height;
-		matrix = DrawPasteButton(matrix, pasteButtonPosition);
+		matrix = DrawPasteButton(pasteButtonPosition, matrix);
 
 		return matrix;
 	}
 
-	private static Matrix4x4 DrawCopyButton(Matrix4x4 matrix, Rect copyButtonPosition)
+
+	private static Matrix4x4 DrawCopyButton(Rect position, Matrix4x4 matrix)
 	{
-		if (GUI.Button(copyButtonPosition, "Copy"))
+		if (GUI.Button(position, "Copy"))
 		{
 			MatrixToClipboard(ref matrix);
 		}
@@ -71,9 +83,9 @@ public static class EditorMatrixGUI
 		return matrix;
 	}
 
-	private static Matrix4x4 DrawPasteButton(Matrix4x4 matrix, Rect pasteButtonPosition)
+	private static Matrix4x4 DrawPasteButton(Rect position, Matrix4x4 matrix)
 	{
-		if (GUI.Button(pasteButtonPosition, "Paste"))
+		if (GUI.Button(position, "Paste"))
 		{
 			MatrixFromClipboard(ref matrix);
 		}
@@ -95,7 +107,7 @@ public static class EditorMatrixGUI
 		return matrix;
 	}
 
-	private delegate void TableLayoutCellAction(Rect cellPosition, int row, int column);
+	private delegate void TableLayoutCellAction(Rect position, int row, int column);
 
 	private static void TableLayout(Rect position, float rowCount, float columnCount, TableLayoutCellAction action)
 	{
