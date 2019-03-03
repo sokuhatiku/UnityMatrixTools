@@ -75,10 +75,12 @@ public static class EditorMatrixGUI
 
 	private static Matrix4x4 DrawCopyButton(Rect position, Matrix4x4 matrix)
 	{
+		EditorGUI.BeginDisabledGroup(EditorGUI.showMixedValue);
 		if (GUI.Button(position, "Copy"))
 		{
 			MatrixToClipboard(ref matrix);
 		}
+		EditorGUI.EndDisabledGroup();
 
 		return matrix;
 	}
