@@ -78,7 +78,7 @@ public static class EditorMatrixGUI
 		EditorGUI.BeginDisabledGroup(EditorGUI.showMixedValue);
 		if (GUI.Button(position, "Copy"))
 		{
-			MatrixToClipboard(ref matrix);
+			EditorMatrixUtility.MatrixToClipboard(ref matrix);
 		}
 		EditorGUI.EndDisabledGroup();
 
@@ -89,7 +89,7 @@ public static class EditorMatrixGUI
 	{
 		if (GUI.Button(position, "Paste"))
 		{
-			MatrixFromClipboard(ref matrix);
+			EditorMatrixUtility.MatrixFromClipboard(ref matrix);
 		}
 
 		return matrix;
@@ -130,16 +130,5 @@ public static class EditorMatrixGUI
 				action(cellPosition, i, j);
 			}
 		}
-	}
-
-	private static void MatrixToClipboard(ref Matrix4x4 matrix)
-	{
-		GUIUtility.systemCopyBuffer = MatrixUtility.CreateCSV(matrix);
-	}
-
-	private static void MatrixFromClipboard(ref Matrix4x4 matrix)
-	{
-		var csv = GUIUtility.systemCopyBuffer;
-		MatrixUtility.TryParse(csv, out matrix);
 	}
 }
